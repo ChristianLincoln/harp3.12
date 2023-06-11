@@ -80,26 +80,26 @@ noun = object("~noun")
 proper_noun = object("~named_noun")   -- John Doe,Schooner Way,Cardiff...happiness,sadness inferred from their adjectives/
 class_noun = object("~class_noun") -- known to you as a normal noun: dog,cat,mountain...
 
-local function verb_combo(representative,past,infinite,stative,concept)
+function verb_combo(representative,past,infinite,stative,concept)
     words[past] = object("~'"..past):where(std.is_a,verb):where(std.repr,representative):where(std.is_a,past_verb):where(std.is_a,acting_verb)
     words[infinite] = object("~'"..infinite):where(std.is_a,verb):where(std.repr,representative):where(std.is_a,infinite_verb)
     words[stative] = object("~'"..stative):where(std.is_a,verb):where(std.repr,representative):where(std.is_a,stative_verb):where(std.is_a,acting_verb)
     words[concept] = object("~'"..concept):where(std.is_a,proper_noun):where(std.repr,representative)
 end
-local function noun_combo(representative,singular,plural)
+function noun_combo(representative,singular,plural)
     words[singular] = object("~'"..singular):where(std.is_a,class_noun):where(std.repr,representative)
     if plural then words[plural] = object("'~"..plural):where(std.is_a,class_noun):where(std.repr,representative) end
 end
-local function adjective_combo(representative,concept,descriptor)
+function adjective_combo(representative,concept,descriptor)
     words[concept] = object("~'"..concept):where(std.is_a,proper_noun):where(std.repr,representative)
     words[descriptor] = object("~'"..descriptor):where(std.is_a,adjective):where(std.repr,representative)
 end
-local function proper_combo(representative,...)
+function proper_combo(representative,...)
     for _,name in pairs({...}) do
         words[name] = object("~'"..name):where(std.is_a,proper_noun):where(std.repr,representative)
     end
 end
-local function simple_word(name)
+function simple_word(name)
     words[name] = object("~'"..name)
     return words[name]
 end

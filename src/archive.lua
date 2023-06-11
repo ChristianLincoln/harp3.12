@@ -209,7 +209,7 @@ link(words.snack,std.is_a,class_noun)
 
 add(class_noun.acts,noun_act)
 
-words.a = object("~a")
+simple_word("a")
 add(words.a.acts,act(function(space)
     space.group,space.entity = make_group()
     space.group:append("det_inst")
@@ -218,8 +218,7 @@ add(words.a.acts,act(function(space)
     link(space.source,std.inside,space.group)
 end))
 
-today = object("!~today")
-
+simple_word("today")
 time_act = act(function(space)
     space.abstract = get_repr(space.source) -- current time... but how?
     if not space.abstract then return end

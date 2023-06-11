@@ -1,0 +1,1 @@
+require("language/memory/vocabulary/dictionary")

@@ -14,9 +14,13 @@ _G = require("system")
 -- std.cause ( When something leads to something else (this standard is backwards) )
 -- std.owns?
 
+--[[ Actions in language will not follow standard english grammatical rules as with previous archives.
+ Abstraction is important to facilitate truly effective language.memory.communication, for example, what if I missed out a word or didn't understand english well?
+ Therefore, all actions in my third language model will operate under the premise that this system is communicating with a developing child.
+]]
 require("language/essential") -- "always use globals"
 require("language/find")
-require.tree('language/memory')
+require("language/memory")
 
 test="fourth"
 tests = {}

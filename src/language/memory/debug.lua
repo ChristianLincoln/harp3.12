@@ -1,4 +1,6 @@
---[[
+--[[ Debug Word Action
+These are just little commands that instruct the system to throw me back information about words in proximity. They mean nothing to the system.
+
 v: verb
 n: next
 r: representative
