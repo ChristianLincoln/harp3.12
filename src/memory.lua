@@ -1,21 +1,23 @@
 --- HARP 3.8 @ 08/04/2023 by Christian Lincoln in Lua
 
 --- RULES:
---- O-L-A Cortex /w ShortMemory
---- ^:language.memory.descriptor !:instance ~:class
---- No recognition needed, auto-words
---- Awareness action used for linked acts
---- Links are open to interpretation
+--- O-L-A Cortex /w ShortMemory (OLD)
+--- O-L-A /w RM,FM
+--- ^:language.memory.descriptor !:instance ~:class (OLD)
+--- No recognition from letters needed, auto-words
+--- Awareness action used for linked acts (OLD)
+--- Awareness on hot-links in memory architecture.
+--- Greater abstraction
 
 --- PROPOSITIONS:
---- Links use by-term as index to object link store, as respect is given to by-term as constant
---- Link meta-data is stored in the link itself rather than link to a link as though link was an object
+--- Links use by-term as index to object link store, as respect is given to by-term as constant (TICK)
+--- Link meta-data is stored in the link itself rather than link to a link as though link was an object (TICK)
 --- The potential for comparing real data such as time and position by a complementary term e.g. left,right,after,before
 
 --- AIMS:
 --- Working Language: Describing new words, events and respecting speakers.
 ---     -- Success: Highly Basic SVO Clause Structure
---- Links: Understanding meta-links.
+--- Links: Understanding meta-links. (TICK)
 --- Links: Understanding real data comparisons for use in time and recognition.
 blank = function()  end
 add = table.insert

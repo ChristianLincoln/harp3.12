@@ -53,7 +53,6 @@ adjective_combo(good,
         "goodness",
         "good"
 )
-
 speaker0 = object("!speaker0"):where(std.is_a,real_object)
 proper_combo(speaker0,
         "i" -- note, an action for 'i' should be made so that it refers to the causation of the text, not like a name for speaker0

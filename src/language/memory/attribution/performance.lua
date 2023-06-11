@@ -37,7 +37,7 @@ add(acting_verb.acts,act(function(space)
     end)
 end))
 
---[[add(infinite_verb.acts,act(function(space)
+add(infinite_verb.acts,act(function(space)
     -- look for 'I am revising'
     space.text = isInsideAText(space.source)
     if not space.text then return FINISH end
@@ -46,4 +46,4 @@ end))
     space.blank = object("_!"):where(std.is_a,real_object):where(std.quality,std.any) -- or whatever the thing that normally does space.repr is (barking: dog)
     space.result = link(space.blank,std.perform,space.repr)
     link(space.source,std.repr,space.blank) -- an infinitive represents something doing something in essence, this represents the first something
-end))]]
+end))
