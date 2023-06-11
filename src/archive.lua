@@ -599,7 +599,7 @@ end
 
 --- Language Archive 3
 --- No archive here except for std.is_a because I believe that it should now be completely replaced with the abstract term std.quality
---- For the sake of my own conscious, whenever std.quality is used against a real_object class rather than a descriptor I will use std.is_a
+--- For the sake of my own conscious, whenever std.quality is used against a real_object class rather than a language.memory.descriptor I will use std.is_a
 
 std.is_a = object("~is_a")
 
@@ -677,7 +677,7 @@ add(words.am.acts,act(function(space) -- RM(entity_representative >> source(am) 
         )(space.source)
         if not space.subject then return RETRY end
     end)
-    task(space,function(space) -- find(non_entity_object) (next) (descriptor)
+    task(space,function(space) -- find(non_entity_object) (next) (language.memory.descriptor)
         space.object = find({ h.by(std.next), h.forward },
                 abstract(find({ h.by(std.repr) }, finish))
         )(space.source)
@@ -728,7 +728,7 @@ add(simple_verb.acts,act(function(space)
         if not space.subject then return RETRY end
         space.link = link(space.subject,std.perform,space.representative)
     end)
-    task(space,function(space) -- find(non_entity_object) (next) (descriptor)
+    task(space,function(space) -- find(non_entity_object) (next) (language.memory.descriptor)
         space.object = find({h.by(std.next),h.forward},
                 find({h.by(std.repr),h.forward},
                         where(find({h.by(std.is_a),h.second(real_object)},finish))

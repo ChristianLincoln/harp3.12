@@ -2,7 +2,7 @@
 
 --- RULES:
 --- O-L-A Cortex /w ShortMemory
---- ^:descriptor !:instance ~:class
+--- ^:language.memory.descriptor !:instance ~:class
 --- No recognition needed, auto-words
 --- Awareness action used for linked acts
 --- Links are open to interpretation
