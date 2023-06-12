@@ -3,35 +3,11 @@ word = object("~word")
 complete = object("~complete")
 link(complete,std.causes,std.good).pressure=0.15
 
-performance = object("~performance")
-consumption = object("~consumption"):where(std.is_a,performance)
-coming = object("~coming")
-flavourful = object("~flavourful")
 perform = object("~perform") -- std?...
 towards = object("~towards")
-valency = object("~valent")
-alongside = object("~with")
-speaking = object("~speaking")
-sleeping = object("~sleeping")
 
 real_quality = object("~quality")
 real_object = object("~entity")
-
-feeling = object("~feeling")
-happiness = object("^happiness"):where(std.is_a,real_quality)
-link(happiness,std.causes,std.good).pressure = 0.5
-link(happiness,std.is_a,feeling)
-sadness = object("^sadness"):where(std.is_a,real_quality)
-link(sadness,std.causes,std.bad).pressure = 0.5
-link(happiness,std.is_a,feeling)
-expect = object("~habitual")
-
-human = object("~human")
-hashtag = object("!self"):where(std.is_a,real_object)
-
-today = object("!today@"..tostring(os.time()))
-consumable = object("~food")
-store = object("~store")
 
 letter = object("~letter")
 clause = object("~clause") -- SVO structured language particle

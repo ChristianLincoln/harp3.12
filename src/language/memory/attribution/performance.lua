@@ -3,19 +3,21 @@ A simple verb can be considered as any verb that does not have any special excep
 In this project, the sentence 'I ate the cookie' would be interpreted as a link stating that the subject performs the verb;
 the resultant link from the sentence would also have additional linked values stating that this happened in the past tense towards the cookie.
 ]]
-
+local function subjectTask(space)
+    task(space,function(space)
+        -- find the subject of the sentence previously
+        space.subject_word = nearWord(1,h.backward,isNounWord)(space.source)-- AMEND: qualification!
+        space.subject = isRepresentative(finish)(space.subject_word)
+        if not space.subject then return RETRY end
+        space.result = link(space.subject,std.perform,space.repr):where(std.quality,event) --- Interrogation or Confirmation could be ran here!
+        link(space.source,std.repr,space.result)
+    end)
+end
 add(acting_verb.acts,act(function(space)
     space.text = isInsideAText(space.source)
     if not space.text then return FINISH end
     space.repr = abstract(isRepresentative(finish))(space.source)
-    task(space,function(space)
-        -- find the subject of the sentence previously
-        space.subject_word = nearWord(10,h.backward,isNounWord)(space.source)-- AMEND: qualification!
-        space.subject = isRepresentative(finish)(space.subject_word)
-        if not space.subject then return RETRY end
-        space.result = link(space.subject,std.perform,space.repr) --- Interrogation or Confirmation could be ran here!
-        link(space.source,std.repr,space.result)
-    end)
+    subjectTask(space)
     task(space,function(space)
         if space.object then return FINISH end
         -- find the object of the sentence afterwards
@@ -46,4 +48,8 @@ add(infinite_verb.acts,act(function(space)
     space.blank = object("_!"):where(std.is_a,real_object):where(std.quality,std.any) -- or whatever the thing that normally does space.repr is (barking: dog)
     space.result = link(space.blank,std.perform,space.repr)
     link(space.source,std.repr,space.blank) -- an infinitive represents something doing something in essence, this represents the first something
+    subjectTask(space)
+    task(space,function(space)
+        if space.subject then space.blank:where(std.is,space.subject) end
+    end)
 end))

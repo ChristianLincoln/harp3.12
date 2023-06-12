@@ -1,6 +1,5 @@
 quality_verb = object("~quality_verb")
 add(quality_verb.acts,act(function(space)
-    print("pp")
     space.text = isInsideAText(space.source)
     if not space.text then return FINISH end
     task(space,function(space)

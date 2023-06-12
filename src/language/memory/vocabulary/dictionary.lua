@@ -1,3 +1,31 @@
+performance = object("~performance")
+consumption = object("~consumption"):where(std.is_a,performance)
+coming = object("~coming")
+flavourful = object("~flavourful")
+
+valency = object("~valent")
+alongside = object("~with")
+speaking = object("~speaking")
+sleeping = object("~sleeping")
+
+feeling = object("~feeling")
+happiness = object("^happiness"):where(std.is_a,real_quality)
+link(happiness,std.causes,std.good).pressure = 0.5
+link(happiness,std.is_a,feeling)
+sadness = object("^sadness"):where(std.is_a,real_quality)
+link(sadness,std.causes,std.bad).pressure = 0.5
+link(happiness,std.is_a,feeling)
+expect = object("~habitual")
+
+human = object("~human")
+hashtag = object("!self"):where(std.is_a,real_object)
+
+today = object("!today@"..tostring(os.time()))
+consumable = object("~food")
+store = object("~store")
+event = object("~event"):where(std.quality,real_object) -- where someone does something.
+stress = object("~stress"):where(std.quality,std.bad)
+
 revision = object("~revision"):where(std.quality,performance)
 verb_combo(revision,
         "revised",
@@ -35,6 +63,8 @@ noun_combo(cookie,
         "cookie",
         "cookies"
 )
+
+exam = object("~exam"):where(std.quality,stress)
 
 place = object("~place") -- LNK for:
 -- expect: LNK(LNK(anything,perf,going),to,place) where LNK(anything,quality,person) and LNK(event,time,any/expect)

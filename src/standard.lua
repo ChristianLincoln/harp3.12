@@ -10,7 +10,7 @@ std = {} -- literal standards for defining the world, akin to constants
 --- Qualities/Relational
 std.quality = object("^quality") -- abstract standard describing the world
 std.is_a = std.quality -- object("^is_a") -- RIP
-std.is = object("^is")
+std.is = std.quality -- object("^is") -- RIP
 std.next = object("^next") -- to be replaced with positional relativity (numerical links) (or possibly .pressure)
 std.after = object("^after") -- std.next but for time
 std.at = object("^time")
