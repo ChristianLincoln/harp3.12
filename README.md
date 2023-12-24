@@ -1,1 +1,3 @@
-hme3.10 using Lua
+Iteration 12 of my 3rd project at symbolic AI
+
+Not working...
